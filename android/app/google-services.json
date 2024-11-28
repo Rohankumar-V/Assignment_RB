@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "339412656380",
+    "project_id": "royalbrothers-cba83",
+    "storage_bucket": "royalbrothers-cba83.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339412656380:android:3a2ca64cec988db5a13779",
+        "android_client_info": {
+          "package_name": "com.royalbrothers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVQHv_2QGgnQpZ1pcp72-b_ys1drBgXxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
