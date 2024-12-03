@@ -3,13 +3,14 @@ import { TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import firebase from '../utils/firebase';
 import { useNavigation } from '@react-navigation/native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const LogoutButton = () => {
   const navigation = useNavigation();
 
   const handleLogout = async () => {
     try {
       await firebase.auth().signOut();
+      await AsyncStorage.clear();
       navigation.replace('Login');
     } catch (error) {
       console.error('Logout error:', error);

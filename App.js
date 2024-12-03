@@ -28,6 +28,7 @@ export default function App() {
           <Stack.Screen name="Home"  component={HomeScreen} options={{
               headerTitleAlign: "center",
               headerRight: () => <LogoutButton />,
+              headerLeft: null
             }}/>
           <Stack.Screen name="Details" component={DetailsScreen} options={{headerTitleAlign:"center"}}/>
         </Stack.Navigator>

@@ -8,6 +8,7 @@ import {
   Alert,
 } from "react-native";
 import firebase from "../utils/firebase";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Link } from "@react-navigation/native";
 
 const SignupScreen = ({ navigation }) => {
@@ -21,11 +22,18 @@ const SignupScreen = ({ navigation }) => {
   const handleSignup = async () => {
     let isValid = true;
 
+   const RegExp = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
     if (!email) {
-      setEmailError("Email is required.");
+      setEmailError('Email is required.');
       isValid = false;
-    } else {
-      setEmailError("");
+    }else if(!RegExp.test(email)){
+      console.log(email);
+      setEmailError('Enter the vaild Email');
+      isValid = false;
+    }
+    else {
+      setEmailError('');
     }
 
     if (!password) {
@@ -49,6 +57,8 @@ const SignupScreen = ({ navigation }) => {
 
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
+      await AsyncStorage.setItem('email', email);
+      await AsyncStorage.setItem('password', password);
       navigation.replace("Home");
     } catch (error) {
       Alert.alert("Signup Error", error.message);
